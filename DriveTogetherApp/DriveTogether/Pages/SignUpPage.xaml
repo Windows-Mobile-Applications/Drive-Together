@@ -7,7 +7,119 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <LinearGradientBrush x:Key="mainGridBackground" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+            <GradientStop Color="#007ACC" Offset="0"/>
+            <GradientStop Color="#FECD42" Offset="0.767"/>
+        </LinearGradientBrush>
 
+        <!-- Sign Up TextBlocks style -->
+        <Style TargetType="TextBlock" x:Key="signUpTextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="Snow"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Sign Up TextBoxes style -->
+        <Style TargetType="TextBox" x:Key="signUpTexBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Sign Up PasswordBoxes style -->
+        <Style TargetType="PasswordBox" x:Key="signUpPasswordBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <!-- Sign Up Buttons style -->
+        <Style TargetType="Button" x:Name="signUpButtons">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource mainGridBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="First name:"
+                           Style="{StaticResource signUpTextBlock}"/>
+        <TextBox Grid.Row="2" Grid.Column="1"
+                         Style="{StaticResource signUpTexBox}"
+                           />
+        <TextBlock Grid.Row="3" Grid.Column="1"
+                   Text="Last name:"
+                           Style="{StaticResource signUpTextBlock}"/>
+        <TextBox Grid.Row="4" Grid.Column="1"
+                         Style="{StaticResource signUpTexBox}"
+                           />
+        <TextBlock Grid.Row="5" Grid.Column="1"
+                   Text="Phone Number:"
+                           Style="{StaticResource signUpTextBlock}"/>
+        <TextBox Grid.Row="6" Grid.Column="1"
+                         Style="{StaticResource signUpTexBox}"
+                           />
+        <TextBlock Grid.Row="7" Grid.Column="1"
+                   Text="E-mail:"
+                           Style="{StaticResource signUpTextBlock}"/>
+        <TextBox Grid.Row="8" Grid.Column="1"
+                         Style="{StaticResource signUpTexBox}"
+                           />
+        <TextBlock Grid.Row="9" Grid.Column="1"
+                   Text="Password:"
+                           Style="{StaticResource signUpTextBlock}"/>
+        <PasswordBox Grid.Row="10" Grid.Column="1"
+                         Style="{StaticResource signUpPasswordBox}"
+                           />
+        <TextBlock Grid.Row="11" Grid.Column="1"
+                   Text="Confirm Password:"
+                           Style="{StaticResource signUpTextBlock}"/>
+        <PasswordBox Grid.Row="12" Grid.Column="1"
+                         Style="{StaticResource signUpPasswordBox}"
+                           />
+        <Button Style="{StaticResource signUpButtons}"
+                       Content="Sign Up" Grid.Row="14" 
+                Grid.Column="1"/>
+        <Button Style="{StaticResource signUpButtons}"
+                       Content="Cancel" Grid.Row="15"
+                Grid.Column="1"/>
     </Grid>
 </Page>

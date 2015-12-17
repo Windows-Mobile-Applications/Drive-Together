@@ -11,7 +11,7 @@
         <!-- Sign In Page Background -->
         <LinearGradientBrush x:Key="mainGridBackground" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
             <GradientStop Color="#007ACC" Offset="0"/>
-            <GradientStop Color="#1C881B" Offset="0.867"/>
+            <GradientStop Color="#FECD42" Offset="0.767"/>
         </LinearGradientBrush>
 
         <!-- Sign In TextBlocks style -->
@@ -25,18 +25,26 @@
         </Style>
 
         <!-- Sign In TextBoxes style -->
-        <Style TargetType="TextBox" x:Key="signInTexBox">
+        <Style TargetType="TextBox" x:Key="signInTextBox">
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Width" Value="300"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
 
+        <!-- Sign In Passwordbox style -->
+        <Style TargetType="PasswordBox" x:Key="signInPasswordBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        
         <!-- Sign In Buttons style -->
         <Style TargetType="Button" x:Name="signInButtons">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Foreground" Value="White"/>
@@ -44,6 +52,43 @@
     </Page.Resources>
 
     <Grid Background="{StaticResource mainGridBackground}">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.29*"/>
+            <RowDefinition Height="0.29*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Text="E-mail"
+                   Style="{StaticResource signInTextBlock}"/>
+        <TextBox Grid.Row="2"
+                   Grid.Column="1"
+                   Style="{StaticResource signInTextBox}"/>
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Text="Password"
+                   Style="{StaticResource signInTextBlock}"/>
+        <PasswordBox Grid.Row="4"
+                   Grid.Column="1"
+                   Style="{StaticResource signInPasswordBox}"/>
+        <Button Grid.Row="6"
+                Grid.Column="1"
+                Content="Sign In" 
+                Style="{StaticResource signInButtons}"/>
+        <Button Grid.Row="7"
+                Grid.Column="1"
+                Content="Back" 
+                Style="{StaticResource signInButtons}"/>
     </Grid>
 </Page>

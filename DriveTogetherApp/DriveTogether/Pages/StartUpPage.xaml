@@ -10,7 +10,7 @@
     <Page.Resources>
         <LinearGradientBrush x:Key="mainGridBackground" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
             <GradientStop Color="#007ACC" Offset="0"/>
-            <GradientStop Color="#1C881B" Offset="0.867"/>
+            <GradientStop Color="#FECD42" Offset="0.767"/>
         </LinearGradientBrush>
 
         <Style TargetType="Button" x:Name="mainPageButtons">

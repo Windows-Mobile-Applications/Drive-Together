@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Parse;
+using DriveTogether.Pages;
 
 namespace DriveTogether
 {
@@ -32,11 +33,12 @@ namespace DriveTogether
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
+
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
+            // Initialize Parse Client
             ParseClient.Initialize("9Dnr7UUEmp4HUdnGMPoTrNlNrUdzgcCjip1LdqcU", "7zWzFZFPaRgaLrQCmwDKpUYiN5IXGBWn9eKcfGJR");
-            ParseFacebookUtils.Initialize("1494678730837366");
         }
 
         /// <summary>
@@ -47,12 +49,12 @@ namespace DriveTogether
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
 
-#if DEBUG
+            #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
-#endif
+            #endif
 
             Frame rootFrame = Window.Current.Content as Frame;
 

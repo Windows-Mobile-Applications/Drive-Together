@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="DriveTogether.Pages.SignInPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DriveTogether.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- Sign In Page Background -->
+        <LinearGradientBrush x:Key="mainGridBackground" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+            <GradientStop Color="#007ACC" Offset="0"/>
+            <GradientStop Color="#1C881B" Offset="0.867"/>
+        </LinearGradientBrush>
+
+        <!-- Sign In TextBlocks style -->
+        <Style TargetType="TextBlock" x:Key="signInTextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="Snow"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Sign In TextBoxes style -->
+        <Style TargetType="TextBox" x:Key="signInTexBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Sign In Buttons style -->
+        <Style TargetType="Button" x:Name="signInButtons">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource mainGridBackground}">
+        
+    </Grid>
+</Page>

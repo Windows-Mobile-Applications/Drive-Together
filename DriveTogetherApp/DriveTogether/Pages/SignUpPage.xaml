@@ -119,7 +119,7 @@
                        Content="Sign Up" Grid.Row="14" 
                 Grid.Column="1"/>
         <Button Style="{StaticResource signUpButtons}"
-                       Content="Cancel" Grid.Row="15"
+                       Content="Back" Grid.Row="15"
                 Grid.Column="1"/>
     </Grid>
 </Page>

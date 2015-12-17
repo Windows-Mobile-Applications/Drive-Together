@@ -89,6 +89,7 @@
         <Button Grid.Row="7"
                 Grid.Column="1"
                 Content="Back" 
-                Style="{StaticResource signInButtons}"/>
+                Style="{StaticResource signInButtons}"
+                Command="{Binding Back}"/>
     </Grid>
 </Page>

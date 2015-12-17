@@ -90,6 +90,6 @@
                 Grid.Column="1"
                 Content="Back" 
                 Style="{StaticResource signInButtons}"
-                Command="{Binding Back}"/>
+                Click="OnBackButtonClick"/>
     </Grid>
 </Page>

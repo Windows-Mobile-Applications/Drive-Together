@@ -120,6 +120,8 @@
                 Grid.Column="1"/>
         <Button Style="{StaticResource signUpButtons}"
                        Content="Back" Grid.Row="15"
-                Grid.Column="1"/>
+                Grid.Column="1"
+                x:Name="BackButton"
+                Click="OnBackButtonClick"/>
     </Grid>
 </Page>

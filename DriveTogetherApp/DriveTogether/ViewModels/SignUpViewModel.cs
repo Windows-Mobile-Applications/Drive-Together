@@ -62,10 +62,9 @@
         /// <returns></returns>
         public async Task<bool> SignUp()
         {
-            string username = this.User.FirstName + this.User.Telephone;
             var parseUser = new ParseUser()
             {
-                Username = username,
+                Username = this.User.Email,
                 Email = this.User.Email,
                 Password = this.User.Password
             };

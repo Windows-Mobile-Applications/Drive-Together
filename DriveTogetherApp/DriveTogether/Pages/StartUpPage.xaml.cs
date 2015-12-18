@@ -1,8 +1,7 @@
 ﻿namespace DriveTogether.Pages
 {
-    using DriveTogether.ViewModels;
+    using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
-    using Windows.UI.Xaml.Navigation;
 
     public sealed partial class StartUpPage : Page
     {
@@ -10,10 +9,15 @@
         {
             this.InitializeComponent();
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        
+        private void OnSignInButtonClick(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new StartUpViewModel(e.Parameter as Frame);
+            this.Frame.Navigate(typeof(SignInPage));
+        }
+
+        private void OnSignUpButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SignUpPage));
         }
     }
 }

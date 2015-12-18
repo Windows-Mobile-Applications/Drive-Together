@@ -11,7 +11,7 @@
     public sealed partial class SignUpPage : Page
     {
         private const string InputErrorMessage = "Input error, all fields are required!";
-        private const string SuccesSignUpMessage = "You have successfully registered!";
+        private const string SuccesSignUpMessage = "You have successfully sign up!";
         
         public SignUpPage() 
             : this(new SignUpViewModel())
@@ -44,7 +44,7 @@
         /// <param name="eventArg">Gets routed event arguments</param>
         private void OnBackButtonClick(object sender, RoutedEventArgs eventArg)
         {
-            this.Frame.GoBack();
+            this.Frame.Navigate(typeof(StartUpPage));
         }
 
         /// <summary>
@@ -54,6 +54,7 @@
         /// <param name="eventArg">Gets routed event arguments</param>
         public void OnSignUpUserButtonClick(object sender, RoutedEventArgs eventArg)
         {
+            this.progressRing.Visibility = Visibility.Visible;
             bool isInputValid = this.ViewModel.ValidateInput();
             if (!isInputValid)
             {
@@ -74,6 +75,7 @@
         private async void SignUpUser()
         {
             bool signUpSuccess = await this.ViewModel.SignUp();
+            this.progressRing.Visibility = Visibility.Collapsed;
             if (signUpSuccess)
             {
                 this.ShowInfoMessage(SuccesSignUpMessage);

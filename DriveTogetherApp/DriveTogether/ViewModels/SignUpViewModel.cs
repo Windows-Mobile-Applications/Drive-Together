@@ -12,6 +12,8 @@
 
         public string ServerErrorMessage { get; set; }
 
+        public bool IsActive { get; set; }
+
         public SignUpViewModel()
         {
             this.User = new UserViewModel();

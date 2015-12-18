@@ -44,7 +44,7 @@
         /// <param name="eventArg">Gets routed event arguments</param>
         private void OnBackButtonClick(object sender, RoutedEventArgs eventArg)
         {
-            this.Frame.Navigate(typeof(StartUpPage));
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         /// <summary>

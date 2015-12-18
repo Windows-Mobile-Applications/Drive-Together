@@ -6,6 +6,82 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <LinearGradientBrush x:Key="mainGridBackground" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+            <GradientStop Color="#007ACC" Offset="0"/>
+            <GradientStop Color="#FECD42" Offset="0.767"/>
+        </LinearGradientBrush>
 
-    <Frame x:Name="Frame"/>
+        <Style TargetType="Button" x:Name="mainPageButtons">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource mainGridBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom">
+            <Grid Name="backgroundGrid" Width="160" Height="160" Visibility="Collapsed" />
+            <Path Data="M22.100006,0L32,12.400024 25.700012,12.400024 25.700012,24.200012C25.700012,25.100006 25.100006,25.900024 24,26.400024 23,26.900024 21.700012,26.900024 20.600006,26.5L7,21.100006 7,32 0,32 0,16.900024C0,16 0.6000061,15.200012 1.7000122,14.700012 2.7000122,14.200012 4.1000061,14.200012 5.1000061,14.600006L18.800018,20 18.800018,12.400024 12.300018,12.400024z" Stretch="Uniform" Fill="#1E1E1E" Width="100" Height="100" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <TransformGroup.Children>
+                            <RotateTransform Angle="0" />
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                        </TransformGroup.Children>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Grid>
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   FontFamily="Segoe UI"
+                   FontStyle="Italic"
+                   FontWeight="SemiBold"
+                   Foreground="#1E1E1E"
+                   Text="Drive Together"/>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Content="Sign In" 
+                Style="{StaticResource mainPageButtons}" 
+                VerticalAlignment="Bottom"
+                Click="OnSignInButtonClick"/>
+            <Button 
+                Grid.Row="1"
+                Grid.Column="1" 
+                Content="Sign Up"
+                Style="{StaticResource mainPageButtons}"
+                VerticalAlignment="Top"
+                Click="OnSignUpButtonClick"/>
+        </Grid>
+    </Grid>
 </Page>

@@ -12,7 +12,7 @@
 
         private void OnBackButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(StartUpPage));
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

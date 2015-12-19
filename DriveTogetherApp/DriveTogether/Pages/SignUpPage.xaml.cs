@@ -1,4 +1,12 @@
-﻿namespace DriveTogether.Pages
+﻿using System.IO;
+using System.Threading.Tasks;
+using Windows.Storage;
+using DriveTogether.Models;
+using SQLite.Net;
+using SQLite.Net.Async;
+using SQLite.Net.Platform.WinRT;
+
+namespace DriveTogether.Pages
 {
     using System;
 
@@ -155,6 +163,7 @@
             if (signUpSuccess)
             {
                 this.ShowInfoMessage(SuccesSignUpMessage);
+                this.UserSignInStateUpdate();
                 this.Frame.Navigate(typeof(SignInPage));
             }
             else
@@ -171,6 +180,43 @@
         {
             var dialog = new MessageDialog(message);
             await dialog.ShowAsync();
+        }
+
+        private async void UserSignInStateUpdate()
+        {
+            var item = new SaveStateModel
+            {
+                FirstName = this.FirstName.Text,
+                LastName = this.LastName.Text,
+                PhoneNumber = int.Parse(this.PhoneNumber.Text),
+                Email = this.Email.Text,
+                Password = this.Passsword.Password
+            };
+
+            await this.InsertUserInfoAsync(item);
+        }
+
+        private SQLiteAsyncConnection GetDbConnectionAsync()
+        {
+            var dbFilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            var connectionFactory =
+                new Func<SQLiteConnectionWithLock>(
+                    () =>
+                    new SQLiteConnectionWithLock(
+                        new SQLitePlatformWinRT(),
+                        new SQLiteConnectionString(dbFilePath, storeDateTimeAsTicks: false)));
+
+            var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
+
+            return asyncConnection;
+        }
+
+        private async Task<int> InsertUserInfoAsync(SaveStateModel item)
+        {
+            var connection = this.GetDbConnectionAsync();
+            var result = await connection.InsertAsync(item);
+            return result;
         }
     }
 }

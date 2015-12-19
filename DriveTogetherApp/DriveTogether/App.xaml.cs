@@ -5,7 +5,6 @@
     using System.IO;
     using System.Threading.Tasks;
 
-
     using SQLite.Net;
     using SQLite.Net.Async;
     using SQLite.Net.Platform.WinRT;
@@ -24,6 +23,8 @@
     sealed partial class App : Application
     {
         private bool isSignedIn;
+        private string email;
+        private string password;
 
         public App()
         {
@@ -40,6 +41,11 @@
 
             this.InitAsync();
             this.GetAllStates();
+
+            if (this.isSignedIn)
+            {
+                this.LogInCurrentUser();
+            }
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()
@@ -62,8 +68,6 @@
         {
             var connection = this.GetDbConnectionAsync();
             await connection.CreateTableAsync<SaveStateModel>();
-
-
         }
 
         private async void GetAllStates()
@@ -77,6 +81,8 @@
                     foreach (var userItem in userData)
                     {
                         this.isSignedIn = userItem.IsSignedIn;
+                        this.email = userItem.Email;
+                        this.password = userItem.Password;
                     }
                 }
             }
@@ -86,9 +92,9 @@
             }
             finally
             {
-                
+
             }
-            return;        
+            return;
         }
 
         private async Task<List<SaveStateModel>> GetStateAsync()
@@ -96,6 +102,19 @@
             var connection = this.GetDbConnectionAsync();
             var result = await connection.Table<SaveStateModel>().ToListAsync();
             return result;
+        }
+
+        private static async Task<ParseUser> LogInInBackground(String email,
+            String password)
+        {
+            await ParseUser.LogInAsync(email, password);
+            return ParseUser.CurrentUser;
+
+        }
+
+        private async void LogInCurrentUser()
+        {
+            var currentUser = await LogInInBackground(this.email, this.password);
         }
 
         /// <summary>

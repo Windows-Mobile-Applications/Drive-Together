@@ -86,7 +86,8 @@
                    Grid.Column="1" 
                    Text="First name:"
                    Style="{StaticResource signUpTextBlock}"/>
-            <TextBox Grid.Row="2" 
+            <TextBox x:Name="FirstName"
+                 Grid.Row="2" 
                  Grid.Column="1"
                  Style="{StaticResource signUpTexBox}"
                  Text="{Binding User.FirstName, Mode=TwoWay}"/>
@@ -96,7 +97,8 @@
                    Grid.Column="1"
                    Text="Last name:"
                    Style="{StaticResource signUpTextBlock}"/>
-            <TextBox Grid.Row="4"
+            <TextBox x:Name="LastName"
+                 Grid.Row="4"
                  Grid.Column="1"
                  Style="{StaticResource signUpTexBox}"
                  Text="{Binding User.LastName, Mode=TwoWay}"/>
@@ -106,7 +108,8 @@
                    Grid.Column="1"
                    Text="Phone Number:"
                    Style="{StaticResource signUpTextBlock}"/>
-            <TextBox Grid.Row="6"
+            <TextBox x:Name="PhoneNumber"
+                 Grid.Row="6"
                  Grid.Column="1"
                  Style="{StaticResource signUpTexBox}"
                  Text="{Binding User.Telephone, Mode=TwoWay}"/>
@@ -116,7 +119,8 @@
                    Grid.Column="1"
                    Text="E-mail:"
                    Style="{StaticResource signUpTextBlock}"/>
-            <TextBox Grid.Row="8"
+            <TextBox x:Name="Email"
+                Grid.Row="8"
                  Grid.Column="1"
                  Style="{StaticResource signUpTexBox}"
                  Text="{Binding User.Email, Mode=TwoWay}"/>
@@ -126,7 +130,8 @@
                    Grid.Column="1"
                    Text="Password:"
                    Style="{StaticResource signUpTextBlock}"/>
-            <PasswordBox Grid.Row="10" 
+            <PasswordBox x:Name="Passsword"
+                     Grid.Row="10" 
                      Grid.Column="1"
                      Style="{StaticResource signUpPasswordBox}"
                      Password="{Binding User.Password, Mode=TwoWay}"/>

@@ -105,6 +105,7 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Models\SaveStateModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

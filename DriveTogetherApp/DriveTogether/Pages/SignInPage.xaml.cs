@@ -146,7 +146,10 @@
             if (singInSuccess)
             {
                 this.ViewModel.IsActive = true;
-                this.UserSignInStateUpdate();
+                if (this.KeepMeLoggedIn.IsChecked.Value)
+                {
+                    this.UserSignInStateUpdate();
+                }
                 this.Frame.Navigate(typeof(HomePage));
             }
             else
@@ -165,7 +168,9 @@
         {
             var item = new SaveStateModel
             {
-                IsSignedIn = this.ViewModel.IsActive
+                IsSignedIn = this.ViewModel.IsActive,
+                Email = this.EmailBox.Text,
+                Password = this.PasswordBox.Password
             };
 
             await this.InsertStateAsync(item);

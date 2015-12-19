@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page x:Name="Page"
     x:Class="DriveTogether.Pages.SignInPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -40,7 +40,7 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style>
-        
+
         <!-- Sign In Buttons style -->
         <Style TargetType="Button" x:Name="signInButtons">
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -51,51 +51,65 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <Grid Background="{StaticResource mainGridBackground}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.29*"/>
-                <RowDefinition Height="0.29*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="1"
+            <Grid Background="{StaticResource mainGridBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.29*"/>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="1"
                    Grid.Column="1"
                    Text="E-mail"
                    Style="{StaticResource signInTextBlock}"/>
-            <TextBox Grid.Row="2"
+                <TextBox x:Name="EmailBox"
+                   Grid.Row="2"
                    Grid.Column="1"
                    Style="{StaticResource signInTextBox}"
                    Text="{Binding User.Email, Mode=TwoWay}"/>
-            <TextBlock Grid.Row="3"
+                <TextBlock Grid.Row="3"
                    Grid.Column="1"
                    Text="Password"
                    Style="{StaticResource signInTextBlock}"/>
-            <PasswordBox Grid.Row="4"
+                <PasswordBox x:Name="PasswordBox"
+                   Grid.Row="4"
                    Grid.Column="1"
                    Style="{StaticResource signInPasswordBox}"
                    Password="{Binding User.Password, Mode=TwoWay}"/>
-            <Button Grid.Row="6"
+                <Button Grid.Row="6"
                 Grid.Column="1"
                 Content="Sign In" 
                 Style="{StaticResource signInButtons}"
                 Click="OnSignInUserButtonClick"/>
-            <Button Grid.Row="7"
+                <Button Grid.Row="7"
                 Grid.Column="1"
                 Content="Back" 
                 Style="{StaticResource signInButtons}"
                 Click="OnBackButtonClick"/>
-        </Grid>
-        <ProgressRing x:Name="progressRing"
+                <CheckBox x:Name="KeepMeLoggedIn"
+                      Grid.Row="9"
+                      Grid.Column="1"
+                      Content="Keep me Signed"
+                      HorizontalAlignment="Center"
+                      VerticalContentAlignment="Center"
+                      FontFamily="SegoeUI"
+                      FontSize="15"
+                      FontWeight="SemiBold">
+                </CheckBox>
+            </Grid>
+            <ProgressRing x:Name="progressRing"
                       IsActive="True"
                       Visibility="Collapsed"
                       Foreground="#1E1E1E"
@@ -105,5 +119,5 @@
                       Canvas.ZIndex="100"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"/>
-    </Grid>
+        </Grid>
 </Page>

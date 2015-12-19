@@ -8,6 +8,11 @@
         [AutoIncrement]
         public int Id { get; set; }
 
+        [Indexed]
         public bool IsSignedIn { get; set; }
+
+        public string Email { get; set; }
+        
+        public string Password { get; set; }
     }
 }

@@ -40,6 +40,7 @@ namespace DriveTogether.Pages
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
             this.ViewModel = viewModel;
+            this.InitAsync();
         }
         
         public SignUpViewModel ViewModel
@@ -184,7 +185,7 @@ namespace DriveTogether.Pages
 
         private async void UserSignInStateUpdate()
         {
-            var item = new SaveStateModel
+            var item = new UserModel
             {
                 FirstName = this.FirstName.Text,
                 LastName = this.LastName.Text,
@@ -212,7 +213,13 @@ namespace DriveTogether.Pages
             return asyncConnection;
         }
 
-        private async Task<int> InsertUserInfoAsync(SaveStateModel item)
+        private async void InitAsync()
+        {
+            var connection = this.GetDbConnectionAsync();
+            await connection.CreateTableAsync<UserModel>();
+        }
+
+        private async Task<int> InsertUserInfoAsync(UserModel item)
         {
             var connection = this.GetDbConnectionAsync();
             var result = await connection.InsertAsync(item);

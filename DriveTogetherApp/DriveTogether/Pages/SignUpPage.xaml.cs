@@ -11,7 +11,7 @@
     public sealed partial class SignUpPage : Page
     {
         private const string InputErrorMessage = "Input error, all fields are required!";
-        private const string SuccesSignUpMessage = "You have successfully sign up!";
+        private const string SuccesSignUpMessage = "You have successfully signed up!";
         
         public SignUpPage() 
             : this(new SignUpViewModel())
@@ -58,6 +58,7 @@
             bool isInputValid = this.ViewModel.ValidateInput();
             if (!isInputValid)
             {
+                this.progressRing.Visibility = Visibility.Collapsed;
                 this.ShowInfoMessage(InputErrorMessage);
                 return;
             }

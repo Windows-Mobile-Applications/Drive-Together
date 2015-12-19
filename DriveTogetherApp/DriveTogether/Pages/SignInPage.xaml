@@ -50,46 +50,60 @@
             <Setter Property="Foreground" Value="White"/>
         </Style>
     </Page.Resources>
-
-    <Grid Background="{StaticResource mainGridBackground}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="0.1*"/>
-            <RowDefinition Height="0.29*"/>
-            <RowDefinition Height="0.29*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="1"
+    <Grid>
+        <Grid Background="{StaticResource mainGridBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.29*"/>
+                <RowDefinition Height="0.29*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="1"
                    Grid.Column="1"
                    Text="E-mail"
                    Style="{StaticResource signInTextBlock}"/>
-        <TextBox Grid.Row="2"
+            <TextBox Grid.Row="2"
                    Grid.Column="1"
-                   Style="{StaticResource signInTextBox}"/>
-        <TextBlock Grid.Row="3"
+                   Style="{StaticResource signInTextBox}"
+                   Text="{Binding User.Email, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="3"
                    Grid.Column="1"
                    Text="Password"
                    Style="{StaticResource signInTextBlock}"/>
-        <PasswordBox Grid.Row="4"
+            <PasswordBox Grid.Row="4"
                    Grid.Column="1"
-                   Style="{StaticResource signInPasswordBox}"/>
-        <Button Grid.Row="6"
+                   Style="{StaticResource signInPasswordBox}"
+                   Password="{Binding User.Password, Mode=TwoWay}"/>
+            <Button Grid.Row="6"
                 Grid.Column="1"
                 Content="Sign In" 
-                Style="{StaticResource signInButtons}"/>
-        <Button Grid.Row="7"
+                Style="{StaticResource signInButtons}"
+                Click="OnSignInUserButtonClick"/>
+            <Button Grid.Row="7"
                 Grid.Column="1"
                 Content="Back" 
                 Style="{StaticResource signInButtons}"
                 Click="OnBackButtonClick"/>
+        </Grid>
+        <ProgressRing x:Name="progressRing"
+                      IsActive="True"
+                      Visibility="Collapsed"
+                      Foreground="#1E1E1E"
+                      Width="70"
+                      Height="70" 
+                      Opacity="0.7"
+                      Canvas.ZIndex="100"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"/>
     </Grid>
 </Page>

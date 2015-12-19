@@ -137,6 +137,7 @@ namespace DriveTogether.Pages
             this.progressRing.Visibility = Visibility.Collapsed;
             if (singInSuccess)
             {
+                this.ViewModel.IsActive = true;
                 this.Frame.Navigate(typeof(HomePage));
             }
             else

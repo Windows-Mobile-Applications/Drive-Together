@@ -1,19 +1,30 @@
 ﻿namespace DriveTogether
 {
     using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading.Tasks;
 
-    using DriveTogether.Pages;
-    using Parse;
 
+    using SQLite.Net;
+    using SQLite.Net.Async;
+    using SQLite.Net.Platform.WinRT;
     using Windows.ApplicationModel;
     using Windows.ApplicationModel.Activation;
+    using Windows.Storage;
     using Windows.UI.Core;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
     using Windows.UI.Xaml.Navigation;
 
+    using Models;
+    using Pages;
+    using Parse;
+
     sealed partial class App : Application
     {
+        private bool isSignedIn;
+
         public App()
         {
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
@@ -25,6 +36,66 @@
 
             // Initialize Parse Client
             ParseClient.Initialize("9Dnr7UUEmp4HUdnGMPoTrNlNrUdzgcCjip1LdqcU", "7zWzFZFPaRgaLrQCmwDKpUYiN5IXGBWn9eKcfGJR");
+
+
+            this.InitAsync();
+            this.GetAllStates();
+        }
+
+        private SQLiteAsyncConnection GetDbConnectionAsync()
+        {
+            var dbFilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            var connectionFactory =
+                new Func<SQLiteConnectionWithLock>(
+                    () =>
+                    new SQLiteConnectionWithLock(
+                        new SQLitePlatformWinRT(),
+                        new SQLiteConnectionString(dbFilePath, storeDateTimeAsTicks: false)));
+
+            var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
+
+            return asyncConnection;
+        }
+
+        private async void InitAsync()
+        {
+            var connection = this.GetDbConnectionAsync();
+            await connection.CreateTableAsync<SaveStateModel>();
+
+
+        }
+
+        private async void GetAllStates()
+        {
+            try
+            {
+                var userData = await this.GetStateAsync();
+
+                if (userData.Count > 0)
+                {
+                    foreach (var userItem in userData)
+                    {
+                        this.isSignedIn = userItem.IsSignedIn;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                
+            }
+            return;        
+        }
+
+        private async Task<List<SaveStateModel>> GetStateAsync()
+        {
+            var connection = this.GetDbConnectionAsync();
+            var result = await connection.Table<SaveStateModel>().ToListAsync();
+            return result;
         }
 
         /// <summary>
@@ -35,14 +106,15 @@
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
 
-            #if DEBUG
+#if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
-            #endif
+#endif
 
             Frame rootFrame = Window.Current.Content as Frame;
+
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -52,9 +124,9 @@
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
                 rootFrame.Navigated += OnNavigated;
-                
+
                 Window.Current.Content = rootFrame;
-                
+
                 SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
@@ -63,10 +135,19 @@
                     AppViewBackButtonVisibility.Collapsed;
             }
 
+
             if (rootFrame.Content == null)
             {
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                if (isSignedIn)
+                {
+                    rootFrame.Navigate(typeof(HomePage), e.Arguments);
+                }
+                else
+                {
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                }
             }
+
 
             Window.Current.Activate();
         }
@@ -83,7 +164,7 @@
 
         private void OnNavigated(object sender, NavigationEventArgs e)
         {
-            if (((Frame) sender).CanGoBack)
+            if (((Frame)sender).CanGoBack)
             {
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                     AppViewBackButtonVisibility.Visible;

@@ -1,13 +1,21 @@
-﻿using System;
-using Windows.UI.Popups;
-using Windows.UI.Xaml.Navigation;
-using DriveTogether.Common;
-using DriveTogether.ViewModels;
-
-namespace DriveTogether.Pages
+﻿namespace DriveTogether.Pages
 {
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+    using Windows.Storage;
+    using Windows.UI.Popups;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Navigation;
+
+    using SQLite.Net;
+    using SQLite.Net.Async;
+    using SQLite.Net.Platform.WinRT;
+
+    using Common;
+    using Models;
+    using ViewModels;
 
     public sealed partial class SignInPage : Page
     {
@@ -131,13 +139,14 @@ namespace DriveTogether.Pages
             }
         }
 
-        public async void SignInUser()
+        private async void SignInUser()
         {
-            bool singInSuccess = await this.ViewModel.SignIn();
+            bool singInSuccess = await this.ViewModel.SignInAsync();
             this.progressRing.Visibility = Visibility.Collapsed;
             if (singInSuccess)
             {
                 this.ViewModel.IsActive = true;
+                this.UserSignInStateUpdate();
                 this.Frame.Navigate(typeof(HomePage));
             }
             else
@@ -150,6 +159,39 @@ namespace DriveTogether.Pages
         {
             var dialog = new MessageDialog(message);
             await dialog.ShowAsync();
+        }
+
+        private async void UserSignInStateUpdate()
+        {
+            var item = new SaveStateModel
+            {
+                IsSignedIn = this.ViewModel.IsActive
+            };
+
+            await this.InsertStateAsync(item);
+        }
+
+        private SQLiteAsyncConnection GetDbConnectionAsync()
+        {
+            var dbFilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            var connectionFactory =
+                new Func<SQLiteConnectionWithLock>(
+                    () =>
+                    new SQLiteConnectionWithLock(
+                        new SQLitePlatformWinRT(),
+                        new SQLiteConnectionString(dbFilePath, storeDateTimeAsTicks: false)));
+
+            var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
+
+            return asyncConnection;
+        }
+
+        private async Task<int> InsertStateAsync(SaveStateModel item)
+        {
+            var connection = this.GetDbConnectionAsync();
+            var result = await connection.InsertAsync(item);
+            return result;
         }
     }
 }

@@ -35,7 +35,7 @@
             return true;
         }
 
-        public async Task<bool> SignIn()
+        public async Task<bool> SignInAsync()
         {
             try
             {

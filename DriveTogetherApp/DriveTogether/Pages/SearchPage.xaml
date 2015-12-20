@@ -10,7 +10,6 @@
     <Page.Resources>
 
         <Style TargetType="ComboBox" x:Key="ComboboxStyle">
-            <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="150"/>
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -18,12 +17,14 @@
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="BorderBrush" Value="#007ACC"/>
         </Style>
-        <Style TargetType="Button" x:Name="signInButtons">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
+        <Style TargetType="Button" x:Name="searchButton">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="#007ACC"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="0,1,0,0"/>
         </Style>
     </Page.Resources>
 
@@ -54,111 +55,146 @@
         </CommandBar>
     </Page.TopAppBar>
     <Grid Background="#8DD28A">
-        <Grid >
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.05*"/>
-                <RowDefinition x:Name="FirstRow" Height="1*"/>
+                <RowDefinition x:Name="FirstRow" Height="2*"/>
                 <RowDefinition x:Name="SecondRow" Height="1.7*"/>
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+
             <TextBlock Grid.Row="0"
-        x:Name="ShowHidenMenu" 
+                       x:Name="ShowHidenMenu" 
                        Text="Show"
-                      Visibility="Collapsed"
-                      HorizontalAlignment="Right"
-                      VerticalAlignment="Top"
-                      Tapped="ShowHidenMenu_OnTapped"/>
+                       Visibility="Collapsed"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Tapped="ShowHidenMenu_OnTapped"/>
+            
             <Border x:Name="SearchOptions"
-                Grid.Row="1" BorderBrush="Black" BorderThickness="0,0,0,2">
+                    Grid.Row="1" 
+                    BorderBrush="White" 
+                    BorderThickness="0,0,0,1">
                 <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="0.4*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="0.4*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="0.7*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <ComboBox Grid.Row="0"
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1.1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                 <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   Foreground="#1E1E1E"
+                   Text="Choose destination"/>
+
+                    <ComboBox Grid.Row="1"
                           Grid.Column="0" 
                           PlaceholderText="From"
                           Style="{StaticResource ComboboxStyle}">
-                    <ComboBox.Items>
-                        <ComboBoxItem>Sofia</ComboBoxItem>
-                        <ComboBoxItem>Plovdiv</ComboBoxItem>
-                        <ComboBoxItem>Varna</ComboBoxItem>
-                        <ComboBoxItem>Burgas</ComboBoxItem>
-                        <ComboBoxItem>Pleven</ComboBoxItem>
-                        <ComboBoxItem>Veliko Tarnovo</ComboBoxItem>
-                        <ComboBoxItem>Blagoevgrad</ComboBoxItem>
-                        <ComboBoxItem>Stara Zagora</ComboBoxItem>
-                    </ComboBox.Items>
-                </ComboBox>
-                <ComboBox Grid.Row="0"
+                        <ComboBox.Items>
+                            <ComboBoxItem>Sofia</ComboBoxItem>
+                            <ComboBoxItem>Plovdiv</ComboBoxItem>
+                            <ComboBoxItem>Varna</ComboBoxItem>
+                            <ComboBoxItem>Burgas</ComboBoxItem>
+                            <ComboBoxItem>Pleven</ComboBoxItem>
+                            <ComboBoxItem>Veliko Tarnovo</ComboBoxItem>
+                            <ComboBoxItem>Blagoevgrad</ComboBoxItem>
+                            <ComboBoxItem>Stara Zagora</ComboBoxItem>
+                        </ComboBox.Items>
+                        
+                    </ComboBox>
+                    <ComboBox Grid.Row="1"
                           Grid.Column="1" 
                           PlaceholderText="To"
                           Style="{StaticResource ComboboxStyle}">
-                    <ComboBox.Items>
-                        <ComboBoxItem>Sofia</ComboBoxItem>
-                        <ComboBoxItem>Plovdiv</ComboBoxItem>
-                        <ComboBoxItem>Varna</ComboBoxItem>
-                        <ComboBoxItem>Burgas</ComboBoxItem>
-                        <ComboBoxItem>Pleven</ComboBoxItem>
-                        <ComboBoxItem>Veliko Tarnovo</ComboBoxItem>
-                        <ComboBoxItem>Blagoevgrad</ComboBoxItem>
-                        <ComboBoxItem>Stara Zagora</ComboBoxItem>
-                    </ComboBox.Items>
-                </ComboBox>
-                <TimePicker Grid.Row="2" Grid.Column="0"
-                        HorizontalAlignment="Center"
-                        Padding="36,0,36,0"
-                            Height="36"  
-                            Margin="4"
-                        ClockIdentifier="24HourClock"/>
-                <TextBlock Text="Choose time between" Grid.Row="1" Grid.Column="0"
-                       Grid.ColumnSpan="2"
-                       HorizontalAlignment="Center"/>
-                <TimePicker Grid.Row="2" Grid.Column="1"
-                        HorizontalAlignment="Center"
-                        Padding="36,0,36,0"
-                        Height="36"  
-                        ClockIdentifier="24HourClock"/>
-                <TextBlock Text="Choose date between" Grid.Row="3" Grid.Column="0"
-                       Grid.ColumnSpan="2"
-                       HorizontalAlignment="Center"/>
-                <DatePicker Grid.Row="4"
-                        Grid.Column="0"
-                        HorizontalAlignment="Center"
-                        Padding="64,0,64,0"
-                        Height="36"
-                        DayFormat="{}{day.integer}" 
-                        MonthFormat="{}{month.abbreviated}" 
-                        YearFormat="{}{year.full}"/>
-                <DatePicker Grid.Row="4"
-                        Grid.Column="1"
-                        HorizontalAlignment="Center"
-                        Padding="64,0,64,0"
-                        Width="165" 
-                        Height="36"
-                        DayFormat="{}{day.integer}" 
-                        MonthFormat="{}{month.abbreviated}" 
-                        YearFormat="{}{year.full}"/>
-                <Button Grid.Row="5" 
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                        Content="Search"
-                        Style="{StaticResource signInButtons}"
-                    Click="OnSearchButtonClick"/>
-            </Grid>
-        </Border>
-        <ContentControl Grid.Row="2">
+                        <ComboBox.Items>
+                            <ComboBoxItem>Sofia</ComboBoxItem>
+                            <ComboBoxItem>Plovdiv</ComboBoxItem>
+                            <ComboBoxItem>Varna</ComboBoxItem>
+                            <ComboBoxItem>Burgas</ComboBoxItem>
+                            <ComboBoxItem>Pleven</ComboBoxItem>
+                            <ComboBoxItem>Veliko Tarnovo</ComboBoxItem>
+                            <ComboBoxItem>Blagoevgrad</ComboBoxItem>
+                            <ComboBoxItem>Stara Zagora</ComboBoxItem>
+                        </ComboBox.Items>
+                    </ComboBox>
+                    
+                    <TextBlock Text="Choose time of leaving between" 
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               FontSize="20"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    
+                    <TimePicker Grid.Row="3" 
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                Padding="55,0,50,0"
+                                Background="White"
+                                Foreground="Black"
+                                ClockIdentifier="24HourClock"/>
+                    
+                    <TimePicker Grid.Row="3"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Padding="50,0,55,0"
+                                Background="White"
+                                Foreground="Black"
+                                ClockIdentifier="24HourClock"/>
+                    
+                    <TextBlock Text="Choose date of leaving between"
+                               Grid.Row="4" 
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               FontSize="20"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    
+                    <DatePicker Grid.Row="5"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Padding="75,0,75,0"
+                                Background="White"
+                                DayFormat="{}{day.integer}" 
+                                MonthFormat="{}{month.abbreviated}" 
+                                YearFormat="{}{year.full}"/>
+                    
+                    <DatePicker Grid.Row="5"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Padding="75,0,75,0"
+                                Background="White"
+                                DayFormat="{}{day.integer}" 
+                                MonthFormat="{}{month.abbreviated}" 
+                                YearFormat="{}{year.full}"/>
+                    
+                    <Button Grid.Row="6" 
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Content="Search"
+                            Style="{StaticResource searchButton}"
+                            Click="OnSearchButtonClick"/>
+                </Grid>
+            </Border>
+            <ContentControl Grid.Row="2">
                 <Image Source="../Assets/BadgeLogo.scale-100.png"
                        Height="100"/>
-        </ContentControl>
-    </Grid>
-    
+            </ContentControl>
+        </Grid>
     </Grid>
 </Page>

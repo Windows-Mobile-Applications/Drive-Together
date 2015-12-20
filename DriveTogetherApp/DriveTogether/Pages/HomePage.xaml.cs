@@ -7,7 +7,7 @@ namespace DriveTogether.Pages
     using Windows.Storage;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
-    
+
     using SQLite.Net;
     using SQLite.Net.Async;
     using SQLite.Net.Platform.WinRT;
@@ -56,4 +56,6 @@ namespace DriveTogether.Pages
         private void OnSearchButtonClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(SearchPage));
+        }
     }
+}

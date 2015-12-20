@@ -1,11 +1,12 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using System;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
 namespace DriveTogether.Pages
 {
-    public sealed partial class MyProfilePage : Page
+    public sealed partial class UserProfilePage : Page
     {
-        public MyProfilePage()
+        public UserProfilePage()
         {
             this.InitializeComponent();
         }

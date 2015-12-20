@@ -1,12 +1,11 @@
 ﻿<Page
-    x:Class="DriveTogether.Pages.MyProfilePage"
+    x:Class="DriveTogether.Pages.UserProfilePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DriveTogether.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
     <Page.TopAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
@@ -35,9 +34,6 @@
         </CommandBar>
     </Page.TopAppBar>
     <Grid Background="#8DD28A">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+
     </Grid>
 </Page>

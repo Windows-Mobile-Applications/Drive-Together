@@ -73,6 +73,15 @@ namespace DriveTogether.Pages
             this.SecondRow.Height = new GridLength(1.7, GridUnitType.Star);
             this.ShowHidenMenu.Visibility = Visibility.Collapsed;
         }
-        
+
+        private void OnUserIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MyProfilePage));
+        }
+
+        private void OnHomeIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
+        }
     }
 }

@@ -58,5 +58,10 @@ namespace DriveTogether.Pages
         {
             this.Frame.Navigate(typeof(SearchPage));
         }
+
+        private void OnUserIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MyProfilePage));
+        }
     }
 }

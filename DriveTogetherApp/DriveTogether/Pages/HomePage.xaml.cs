@@ -1,4 +1,6 @@
-﻿namespace DriveTogether.Pages
+﻿using Windows.UI.Xaml.Input;
+
+namespace DriveTogether.Pages
 {
     using System;
     using System.IO;
@@ -45,6 +47,11 @@
         {
             var connection = this.GetDbConnectionAsync();
             await connection.DeleteAllAsync<SaveStateModel>();
+        }
+
+        private void ImageOnTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ImageViewer), sender as Image);
         }
     }
 }

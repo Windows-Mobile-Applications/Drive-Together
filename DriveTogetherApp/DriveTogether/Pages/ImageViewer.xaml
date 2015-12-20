@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="DriveTogether.Pages.ImageViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DriveTogether.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer x:Name="container"
+                  ManipulationMode="All"
+                  ManipulationDelta="ImageOnManipulationDelta"
+                  DoubleTapped="ContainerOnDoubleTapped"
+                  Width="360"
+                  HorizontalScrollMode="Enabled"
+                  VerticalScrollMode="Enabled"
+                  HorizontalScrollBarVisibility="Hidden"
+                  VerticalScrollBarVisibility="Hidden"
+                  ZoomMode="Enabled">
+        <Image x:Name="Image" Width="360"
+               VerticalAlignment="Center">
+        </Image>
+    </ScrollViewer>
+</Page>

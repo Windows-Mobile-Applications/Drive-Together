@@ -3,6 +3,22 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "Callisto/1.4.0": {
+        "compile": {
+          "lib/netcore451/Callisto.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Callisto.dll": {}
+        }
+      },
+      "MetroRate/1.0.3": {
+        "compile": {
+          "lib/winrt45/MetroRate.dll": {}
+        },
+        "runtime": {
+          "lib/winrt45/MetroRate.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -1609,6 +1625,22 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "Callisto/1.4.0": {
+        "compile": {
+          "lib/netcore451/Callisto.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Callisto.dll": {}
+        }
+      },
+      "MetroRate/1.0.3": {
+        "compile": {
+          "lib/winrt45/MetroRate.dll": {}
+        },
+        "runtime": {
+          "lib/winrt45/MetroRate.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -3305,6 +3337,22 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "Callisto/1.4.0": {
+        "compile": {
+          "lib/netcore451/Callisto.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Callisto.dll": {}
+        }
+      },
+      "MetroRate/1.0.3": {
+        "compile": {
+          "lib/winrt45/MetroRate.dll": {}
+        },
+        "runtime": {
+          "lib/winrt45/MetroRate.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -4973,6 +5021,22 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "Callisto/1.4.0": {
+        "compile": {
+          "lib/netcore451/Callisto.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Callisto.dll": {}
+        }
+      },
+      "MetroRate/1.0.3": {
+        "compile": {
+          "lib/winrt45/MetroRate.dll": {}
+        },
+        "runtime": {
+          "lib/winrt45/MetroRate.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -6674,6 +6738,22 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "Callisto/1.4.0": {
+        "compile": {
+          "lib/netcore451/Callisto.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Callisto.dll": {}
+        }
+      },
+      "MetroRate/1.0.3": {
+        "compile": {
+          "lib/winrt45/MetroRate.dll": {}
+        },
+        "runtime": {
+          "lib/winrt45/MetroRate.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -8342,6 +8422,22 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "Callisto/1.4.0": {
+        "compile": {
+          "lib/netcore451/Callisto.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Callisto.dll": {}
+        }
+      },
+      "MetroRate/1.0.3": {
+        "compile": {
+          "lib/winrt45/MetroRate.dll": {}
+        },
+        "runtime": {
+          "lib/winrt45/MetroRate.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -10043,6 +10139,22 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "Callisto/1.4.0": {
+        "compile": {
+          "lib/netcore451/Callisto.dll": {}
+        },
+        "runtime": {
+          "lib/netcore451/Callisto.dll": {}
+        }
+      },
+      "MetroRate/1.0.3": {
+        "compile": {
+          "lib/winrt45/MetroRate.dll": {}
+        },
+        "runtime": {
+          "lib/winrt45/MetroRate.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -11712,6 +11824,33 @@
     }
   },
   "libraries": {
+    "Callisto/1.4.0": {
+      "sha512": "q2oErc+4l2MdiZu9h9YmEIQrZCC/I2o1t2gMNuLU36JDG6HDcy/oh98xvJ9s84hMuX5oBR8whEx78INUhvbBfg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "Callisto.nuspec",
+        "lib/netcore451/Callisto.dll",
+        "lib/netcore451/Callisto.pri",
+        "lib/netcore451/Callisto/Themes/Generic.xbf",
+        "package/services/metadata/core-properties/0f826e2f7db4422698155a3e72ad9a20.psmdcp"
+      ]
+    },
+    "MetroRate/1.0.3": {
+      "sha512": "6hzRbv26BSAhDmYyg/GizVehowN2KnHVIVvkJS2+nTEzOCdEGRqTR5Ijf2IO4s9dWfWZXWWSHFchhsim/J79Nw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/winrt45/MetroRate.dll",
+        "lib/winrt45/MetroRate.pri",
+        "lib/winrt45/MetroRate/RatingsControl.xaml",
+        "lib/winrt45/MetroRate/Star.xaml",
+        "MetroRate.nuspec",
+        "package/services/metadata/core-properties/69be3bdd38ac4bc8baceea7cfaf9af56.psmdcp"
+      ]
+    },
     "Microsoft.ApplicationInsights/1.0.0": {
       "sha512": "HZ47/thX57SOuIivSvIbsR6L9CCb/Yt3IyB2i4KHmmNlf3DO+lqFwWIKDdbDNWKX+qh0Rg20/JSMPK0dwUsYYw==",
       "type": "Package",
@@ -15187,6 +15326,8 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Callisto >= 1.4.0",
+      "MetroRate >= 1.0.3",
       "Microsoft.ApplicationInsights >= 1.0.0",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",

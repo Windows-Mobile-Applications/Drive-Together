@@ -7,7 +7,7 @@ namespace DriveTogether.Pages
     using Windows.Storage;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
-    
+
     using SQLite.Net;
     using SQLite.Net.Async;
     using SQLite.Net.Platform.WinRT;
@@ -24,7 +24,7 @@ namespace DriveTogether.Pages
         private void OnLogOutButtonClick(object sender, RoutedEventArgs e)
         {
             this.DropTable();
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(typeof (MainPage));
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()
@@ -34,9 +34,9 @@ namespace DriveTogether.Pages
             var connectionFactory =
                 new Func<SQLiteConnectionWithLock>(
                     () =>
-                    new SQLiteConnectionWithLock(
-                        new SQLitePlatformWinRT(),
-                        new SQLiteConnectionString(dbFilePath, storeDateTimeAsTicks: false)));
+                        new SQLiteConnectionWithLock(
+                            new SQLitePlatformWinRT(),
+                            new SQLiteConnectionString(dbFilePath, storeDateTimeAsTicks: false)));
 
             var asyncConnection = new SQLiteAsyncConnection(connectionFactory);
 
@@ -48,12 +48,15 @@ namespace DriveTogether.Pages
             var connection = this.GetDbConnectionAsync();
             await connection.DeleteAllAsync<SaveStateModel>();
         }
+
         private void OnAddTripButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AddTripPage));
+            this.Frame.Navigate(typeof (AddTripPage));
         }
 
         private void OnSearchButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(SearchPage));
+            this.Frame.Navigate(typeof (SearchPage));
+        }
     }
+}

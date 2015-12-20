@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using DriveTogether.ViewModels;
 
 
 namespace DriveTogether.Pages
@@ -11,6 +13,49 @@ namespace DriveTogether.Pages
         public SearchPage()
         {
             this.InitializeComponent();
+            this.DataContext = new SearchPageViewModel
+            {
+                Results = new List<SearchResultViewModel>()
+                {
+                    new SearchResultViewModel()
+                    {
+                        FullName = "John Doe",
+                        Seats = "4",
+                        FromCity = "Sofia",
+                        ToCity = "Plovdiv",
+                        Date = "12.03.2015",
+                        Time = "15:10"
+                    },
+                    new SearchResultViewModel()
+                    {
+                        FullName = "Jane Doe",
+                        Seats = "3",
+                        FromCity = "Varna",
+                        ToCity = "Burgas",
+                        Date = "13.04.2015",
+                        Time = "12:15"
+                    },
+                    new SearchResultViewModel()
+                    {
+                        FullName = "Jane Doe",
+                        Seats = "3",
+                        FromCity = "Varna",
+                        ToCity = "Burgas",
+                        Date = "13.04.2015",
+                        Time = "12:15"
+                    },
+                    new SearchResultViewModel()
+                    {
+                        FullName = "Jane Doe",
+                        Seats = "3",
+                        FromCity = "Varna",
+                        ToCity = "Burgas",
+                        Date = "13.04.2015",
+                        Time = "12:15"
+                    }
+                }
+            };
+
         }
 
         private void OnSearchButtonClick(object sender, RoutedEventArgs e)
@@ -28,5 +73,6 @@ namespace DriveTogether.Pages
             this.SecondRow.Height = new GridLength(1.7, GridUnitType.Star);
             this.ShowHidenMenu.Visibility = Visibility.Collapsed;
         }
+        
     }
 }

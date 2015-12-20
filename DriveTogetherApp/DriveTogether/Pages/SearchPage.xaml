@@ -176,9 +176,28 @@
                                 DayFormat="{}{day.integer}" 
                                 MonthFormat="{}{month.abbreviated}" 
                                 YearFormat="{}{year.full}"/>
+                    <DatePicker Grid.Row="5"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Padding="75,0,75,0"
+                                Background="White"
+                                DayFormat="{}{day.integer}" 
+                                MonthFormat="{}{month.abbreviated}" 
+                                YearFormat="{}{year.full}"/>
+                    <Button Grid.Row="6" 
+                            Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Content="Search"
+                           Style="{StaticResource searchButton}"
+                           Click="OnSearchButtonClick"/>
+                </Grid>
+                </Border>
             <ListView  Grid.Row="2"
                        ItemsSource="{Binding Results}"
-                       >
+                       ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                       Margin="0"
+                       Padding="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                     <views:SearchResultsView

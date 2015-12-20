@@ -6,8 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="116"
-    d:DesignWidth="400">
+    d:DesignHeight="116">
 
     <Border>
     <Grid Background="#8DD28A" BorderBrush="Black" BorderThickness="0,0,0,1">

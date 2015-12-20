@@ -53,5 +53,10 @@ namespace DriveTogether.Pages
         {
             this.Frame.Navigate(typeof(ImageViewer), sender as Image);
         }
+
+        private void OnSearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SearchPage));
+        }
     }
 }

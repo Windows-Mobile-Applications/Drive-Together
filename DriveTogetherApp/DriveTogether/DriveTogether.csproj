@@ -121,6 +121,9 @@
     <Compile Include="Pages\RateTripPage.xaml.cs">
       <DependentUpon>RateTripPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RateTripPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,6 @@
 ﻿
+using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 
 namespace DriveTogether.Pages
@@ -29,8 +31,7 @@ namespace DriveTogether.Pages
 
         private void ContainerOnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            this.Image.Width = 360;
-            //this.container.ZoomMode = ZoomMode.Disabled;
+            //this.Image.Width = 360;
         }
     }
 }

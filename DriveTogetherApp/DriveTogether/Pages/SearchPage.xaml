@@ -28,7 +28,16 @@
             <Setter Property="BorderThickness" Value="0,1,0,0"/>
         </Style>
         <DataTemplate x:Key="SearchResultsTemplate">
-            <views:SearchResultsView/>
+            <views:SearchResultsView
+                        FullName="{Binding FullName, Mode=TwoWay}" 
+                        Seats="{Binding Seats, Mode=TwoWay}"
+                        FromCity="{Binding FromCity}"
+                        ToCity="{Binding ToCity}"
+                        Date="{Binding Date}"
+                        Time="{Binding Time}"
+                        Height="116" 
+                        Width="{Binding ElementName=Page,
+                        Path=ActualWidth}"/>
         </DataTemplate>
     </Page.Resources>
 
@@ -195,23 +204,14 @@
                 </Border>
             <ListView  Grid.Row="2"
                        ItemsSource="{Binding Results}"
-                       ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                       Margin="0"
-                       Padding="0">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                    <views:SearchResultsView
-                        FullName="{Binding FullName, Mode=TwoWay}" 
-                        Seats="{Binding Seats, Mode=TwoWay}"
-                        FromCity="{Binding FromCity}"
-                        ToCity="{Binding ToCity}"
-                        Date="{Binding Date}"
-                        Time="{Binding Time}"
-                        Height="112" 
-                        Width="{Binding ElementName=Page,
-                        Path=ActualWidth}"/>
-                </DataTemplate>
-                </ListView.ItemTemplate>
+                       ItemTemplate="{StaticResource SearchResultsTemplate}"
+                       ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Margin" Value="3,5,3,1"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
           

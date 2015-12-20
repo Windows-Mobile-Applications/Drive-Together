@@ -5,11 +5,11 @@
     xmlns:local="using:DriveTogether.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="116">
+    mc:Ignorable="d">
 
     <Border>
-    <Grid Background="#8DD28A" BorderBrush="Black" BorderThickness="0,0,0,1">
+    <Grid Background="LightBlue" BorderBrush="Black" BorderThickness="1"
+          Padding="2">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="30"/>

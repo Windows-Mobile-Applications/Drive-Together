@@ -69,7 +69,7 @@ namespace DriveTogether.Pages
         private void ShowHidenMenu_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             this.SearchOptions.Visibility = Visibility.Visible;
-            this.FirstRow.Height = new GridLength(1, GridUnitType.Star);
+            this.FirstRow.Height = new GridLength(2, GridUnitType.Star);
             this.SecondRow.Height = new GridLength(1.7, GridUnitType.Star);
             this.ShowHidenMenu.Visibility = Visibility.Collapsed;
         }

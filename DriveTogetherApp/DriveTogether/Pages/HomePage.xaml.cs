@@ -56,7 +56,7 @@ namespace DriveTogether.Pages
 
         private void OnSearchButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof (SearchPage));
+            this.Frame.Navigate(typeof(SearchPage));
         }
     }
 }

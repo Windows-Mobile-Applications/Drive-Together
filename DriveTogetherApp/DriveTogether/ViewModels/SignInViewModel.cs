@@ -37,14 +37,21 @@
 
         public async Task<bool> SignInAsync()
         {
-            try
+            if (await this.IsConnectedToInternet())
             {
-                await ParseUser.LogInAsync(this.User.Email, this.User.Password);
-                return true;
-            }
-            catch (Exception ex)
+                try
+                {
+                    await ParseUser.LogInAsync(this.User.Email, this.User.Password);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    this.ServerErrorMessage = ex.Message;
+                    return false;
+                }
+            } 
+            else
             {
-                this.ServerErrorMessage = ex.Message;
                 return false;
             }
         }

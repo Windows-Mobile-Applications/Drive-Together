@@ -76,8 +76,8 @@
                 BorderBrush="White"
                 BorderThickness="0.5,1,0,0"
                 Click="OnAddTripButtonClick"/>
-        
-        <!--<Button Content="LogOut"
-                Click="OnLogOutButtonClick"/>-->
+
+        <Button Content="LogOut"
+                Click="OnLogOutButtonClick"/>
     </Grid>
 </Page>

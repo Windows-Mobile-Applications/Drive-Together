@@ -5,6 +5,9 @@
 
     using DriveTogether.Common;
     using Parse;
+    using System.Net.NetworkInformation;
+    using Windows.UI.Popups;
+    using Windows.Networking.Connectivity;
 
     public class SignUpViewModel : BaseViewModel
     {
@@ -74,15 +77,22 @@
             parseUser["firstName"] = this.User.FirstName;
             parseUser["lastName"] = this.User.LastName;
             parseUser["telephone"] = this.User.Telephone;
-
-            try
+            
+            if (await this.IsConnectedToInternet())
             {
-                await parseUser.SignUpAsync();
-                return true;
+                try
+                {
+                    await parseUser.SignUpAsync();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    this.ServerErrorMessage = ex.Message;
+                    return false;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                this.ServerErrorMessage = ex.Message;
                 return false;
             }
         }

@@ -46,5 +46,10 @@
             var connection = this.GetDbConnectionAsync();
             await connection.DeleteAllAsync<SaveStateModel>();
         }
+
+        private void OnAddTripButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddTripPage));
+        }
     }
 }

@@ -7,13 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <LinearGradientBrush x:Key="mainGridBackground" EndPoint="0.504,1.5" StartPoint="0.504,0.03">
-            <GradientStop Color="#007ACC" Offset="0"/>
-            <GradientStop Color="#FECD42" Offset="0.767"/>
-        </LinearGradientBrush>
-    </Page.Resources>
-
     <Page.TopAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
@@ -40,8 +33,8 @@
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.TopAppBar>
-    
-    <Grid Background="{StaticResource mainGridBackground}">
+
+    <Grid Background="#8DD28A">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
@@ -69,7 +62,8 @@
                 Foreground="White"
                 FontSize="16"
                 BorderBrush="White"
-                BorderThickness="0.5,1,0,0"/>
+                BorderThickness="0.5,1,0,0"
+                Click="OnAddTripButtonClick"/>
         
         <!--<Button Content="LogOut"
                 Click="OnLogOutButtonClick"/>-->

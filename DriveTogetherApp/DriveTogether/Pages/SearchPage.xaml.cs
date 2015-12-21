@@ -83,5 +83,10 @@ namespace DriveTogether.Pages
         {
             this.Frame.Navigate(typeof(HomePage));
         }
+
+        private void OnSearchResultDoubleTap(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SearchResultsDetailsPage), sender);
+        }
     }
 }

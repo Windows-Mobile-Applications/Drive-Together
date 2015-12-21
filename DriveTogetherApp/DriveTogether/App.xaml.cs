@@ -20,6 +20,7 @@
     using Pages;
     using Parse;
     using Models.Parse;
+
     sealed partial class App : Application
     {
         private bool isSignedIn;

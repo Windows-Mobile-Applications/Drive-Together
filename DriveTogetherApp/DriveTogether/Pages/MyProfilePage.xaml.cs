@@ -48,6 +48,11 @@ namespace DriveTogether.Pages
             this.OpenFiles();
         }
 
+        private void OnRateIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RateTripPage));
+        }
+
         private async void OpenFiles()
         {
             var picker = new Windows.Storage.Pickers.FileOpenPicker();

@@ -70,6 +70,11 @@ namespace DriveTogether.Pages
             this.Frame.Navigate(typeof (MainPage));
         }
 
+        private void OnRateIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RateTripPage));
+        }
+
         private SQLiteAsyncConnection GetDbConnectionAsync()
         {
             var dbFilePath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "db.sqlite");

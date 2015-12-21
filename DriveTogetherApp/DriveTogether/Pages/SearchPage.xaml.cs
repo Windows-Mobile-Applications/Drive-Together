@@ -37,21 +37,21 @@ namespace DriveTogether.Pages
                     },
                     new SearchResultViewModel()
                     {
-                        FullName = "Jane Doe",
-                        Seats = "3",
-                        FromCity = "Varna",
+                        FullName = "Pesho Kolev",
+                        Seats = "5",
+                        FromCity = "Sofia",
                         ToCity = "Burgas",
-                        Date = "13.04.2015",
-                        Time = "12:15"
+                        Date = "23.06.2015",
+                        Time = "14:00"
                     },
                     new SearchResultViewModel()
                     {
-                        FullName = "Jane Doe",
-                        Seats = "3",
+                        FullName = "Gosho Petkov",
+                        Seats = "2",
                         FromCity = "Varna",
                         ToCity = "Burgas",
-                        Date = "13.04.2015",
-                        Time = "12:15"
+                        Date = "5.11.2015",
+                        Time = "15:15"
                     }
                 }
             };
@@ -82,6 +82,11 @@ namespace DriveTogether.Pages
         private void OnHomeIconTapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(HomePage));
+        }
+
+        private void OnRateIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RateTripPage));
         }
 
         private void OnSearchResultDoubleTap(object sender, DoubleTappedRoutedEventArgs e)

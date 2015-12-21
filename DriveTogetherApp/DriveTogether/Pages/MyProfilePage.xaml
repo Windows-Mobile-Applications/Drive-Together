@@ -51,12 +51,13 @@
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <TextBlock 
+            <TextBlock Grid.Row="0"
                        Text="John Doe"
                            Style="{StaticResource UserInfoTextBlock}"
                        />
+            <Image Grid.Row="1" x:Name="pic"></Image>
         </Grid>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>

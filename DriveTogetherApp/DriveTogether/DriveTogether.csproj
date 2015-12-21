@@ -106,6 +106,7 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Models\SaveStateModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\UserPictureModel.cs" />
     <Compile Include="Pages\AddTripPage.xaml.cs">
       <DependentUpon>AddTripPage.xaml</DependentUpon>
     </Compile>

@@ -19,7 +19,7 @@
     using Models;
     using Pages;
     using Parse;
-
+    using Models.Parse;
     sealed partial class App : Application
     {
         private bool isSignedIn;
@@ -35,9 +35,7 @@
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            // Initialize Parse Client
-            ParseClient.Initialize("9Dnr7UUEmp4HUdnGMPoTrNlNrUdzgcCjip1LdqcU", "7zWzFZFPaRgaLrQCmwDKpUYiN5IXGBWn9eKcfGJR");
-
+            this.InitParse();
 
             this.InitAsync();
             this.GetAllStates();
@@ -46,6 +44,12 @@
             {
                 this.LogInCurrentUser();
             }
+        }
+
+        private void InitParse()
+        {
+            ParseObject.RegisterSubclass<TripModel>();
+            ParseClient.Initialize("9Dnr7UUEmp4HUdnGMPoTrNlNrUdzgcCjip1LdqcU", "7zWzFZFPaRgaLrQCmwDKpUYiN5IXGBWn9eKcfGJR");
         }
 
         private SQLiteAsyncConnection GetDbConnectionAsync()

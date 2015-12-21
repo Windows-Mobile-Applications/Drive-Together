@@ -1,5 +1,4 @@
-﻿using System;
-using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
 namespace DriveTogether.Pages
@@ -9,6 +8,7 @@ namespace DriveTogether.Pages
         public UserProfilePage()
         {
             this.InitializeComponent();
+            
         }
 
         private void OnHomeIconTapped(object sender, TappedRoutedEventArgs e)

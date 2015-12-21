@@ -85,7 +85,8 @@
                   Width="150"
                   PlaceholderText="From"
                   Background="White"
-                  BorderBrush="#007ACC">
+                  BorderBrush="#007ACC"
+                  SelectedValue="{Binding From, Mode=TwoWay}">
             <ComboBoxItem Content="Sofia"/>
             <ComboBoxItem Content="Varna"/>
             <ComboBoxItem Content="Burgas"/>
@@ -100,7 +101,8 @@
                   Width="150"
                   PlaceholderText="To"
                   Background="White"
-                  BorderBrush="#007ACC">
+                  BorderBrush="#007ACC"
+                  SelectedValue="{Binding To, Mode=TwoWay}">
             <ComboBoxItem Content="Sofia"/>
             <ComboBoxItem Content="Varna"/>
             <ComboBoxItem Content="Burgas"/>
@@ -133,7 +135,8 @@
                     HorizontalAlignment="Center"
                     Background="White"
                     Foreground="Black"
-                    ClockIdentifier="24HourClock"/>
+                    ClockIdentifier="24HourClock"
+                    Time="{Binding TimeOfLeavingStart, Mode=TwoWay}"/>
 
         <!-- Choose time message -> And -->
         <TextBlock Grid.Row="3"
@@ -151,7 +154,8 @@
                     HorizontalAlignment="Center"
                     Background="White"
                     Foreground="Black"
-                    ClockIdentifier="24HourClock"/>
+                    ClockIdentifier="24HourClock"
+                    Time="{Binding TimeOfLeavingEnd, Mode=TwoWay}"/>
 
         <!-- Choose date of leaving message -->
         <TextBlock Grid.Row="5"
@@ -172,7 +176,8 @@
                     Foreground="Black"
                     DayFormat="{}{day.integer}" 
                     MonthFormat="{}{month.abbreviated}" 
-                    YearFormat="{}{year.full}"/>
+                    YearFormat="{}{year.full}"
+                    Date="{Binding DateOfLeaving, Mode=TwoWay}"/>
 
         <TextBlock Grid.Row="7" 
                    Grid.Column="0"
@@ -189,7 +194,8 @@
                  Margin="50,0,50,0"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Center"
-                 TextAlignment="Center"/>
+                 TextAlignment="Center"
+                 Text="{Binding Price, Mode=TwoWay}"/>
 
         <TextBlock Grid.Row="9" 
                    Grid.Column="0"
@@ -206,7 +212,8 @@
                  Margin="50,0,50,0"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Center"
-                 TextAlignment="Center"/>
+                 TextAlignment="Center"
+                 Text="{Binding Info, Mode=TwoWay}"/>
 
         <TextBlock Grid.Row="11" 
                    Grid.Column="0"
@@ -223,7 +230,8 @@
                  Width="50"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Center"
-                 TextAlignment="Center"/>
+                 TextAlignment="Center"
+                 Text="{Binding FreeSeats, Mode=TwoWay}"/>
 
         <Button Grid.Row="12" 
                 Grid.Column="0"
@@ -235,6 +243,7 @@
                 Foreground="White"
                 FontSize="20"
                 BorderBrush="White"
-                BorderThickness="0,3,0,0"/>
+                BorderThickness="0,3,0,0"
+                Click="OnAddTripButtonClick"/>
     </Grid>
 </Page>

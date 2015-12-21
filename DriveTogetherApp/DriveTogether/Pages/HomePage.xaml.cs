@@ -13,12 +13,55 @@ namespace DriveTogether.Pages
     using SQLite.Net.Platform.WinRT;
 
     using Models;
-
+    using ViewModels;
+    using System.Collections.Generic;
     public sealed partial class HomePage : Page
     {
         public HomePage()
         {
             this.InitializeComponent();
+            this.DataContext = new SearchPageViewModel
+            {
+                Results = new List<SearchResultViewModel>()
+                {
+                    new SearchResultViewModel()
+                    {
+                        FullName = "John Doe",
+                        Seats = "4",
+                        FromCity = "Sofia",
+                        ToCity = "Plovdiv",
+                        Date = "12.03.2015",
+                        Time = "15:10"
+                    },
+                    new SearchResultViewModel()
+                    {
+                        FullName = "Jane Doe",
+                        Seats = "3",
+                        FromCity = "Varna",
+                        ToCity = "Burgas",
+                        Date = "13.04.2015",
+                        Time = "12:15"
+                    },
+                    new SearchResultViewModel()
+                    {
+                        FullName = "Jane Doe",
+                        Seats = "3",
+                        FromCity = "Varna",
+                        ToCity = "Burgas",
+                        Date = "13.04.2015",
+                        Time = "12:15"
+                    },
+                    new SearchResultViewModel()
+                    {
+                        FullName = "Jane Doe",
+                        Seats = "3",
+                        FromCity = "Varna",
+                        ToCity = "Burgas",
+                        Date = "13.04.2015",
+                        Time = "12:15"
+                    }
+                }
+            };
         }
 
         private void OnLogOutButtonClick(object sender, RoutedEventArgs e)
@@ -62,6 +105,11 @@ namespace DriveTogether.Pages
         private void OnUserIconTapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MyProfilePage));
+        }
+
+        private void OnSearchResultDoubleTap(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SearchResultsDetailsPage), sender);
         }
     }
 }

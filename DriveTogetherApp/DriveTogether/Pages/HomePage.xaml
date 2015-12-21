@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DriveTogether.Pages"
+    xmlns:views="using:DriveTogether.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -45,16 +46,48 @@
         </CommandBar>
     </Page.TopAppBar>
 
+    <Page.Resources>
+        <DataTemplate x:Key="SearchResultsTemplate">
+            <views:SearchResultsView
+                        FullName="{Binding FullName, Mode=TwoWay}" 
+                        Seats="{Binding Seats, Mode=TwoWay}"
+                        FromCity="{Binding FromCity}"
+                        ToCity="{Binding ToCity}"
+                        Date="{Binding Date}"
+                        Time="{Binding Time}"
+                        Height="116" 
+                        Width="{Binding ElementName=Page,
+                        Path=ActualWidth}"
+                DoubleTapped="OnSearchResultDoubleTap"/>
+        </DataTemplate>
+    </Page.Resources>
+    
     <Grid Background="#8DD28A">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Button Grid.Row="1"
+
+        <ListView  Grid.Row="0"
+                   Grid.Column="0"
+                       ItemsSource="{Binding Results}"
+                       ItemTemplate="{StaticResource SearchResultsTemplate}"
+                       ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="3,5,3,1"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0"
                 Grid.Column="0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -65,7 +98,7 @@
                 BorderBrush="White"
                 BorderThickness="0,1,0.5,0"
                 Click="OnSearchButtonClick"/>
-        <Button Grid.Row="1"
+            <Button Grid.Row="0"
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -76,7 +109,8 @@
                 BorderBrush="White"
                 BorderThickness="0.5,1,0,0"
                 Click="OnAddTripButtonClick"/>
-
+        </Grid>
+        
         <Button Content="LogOut"
                 Click="OnLogOutButtonClick"/>
     </Grid>

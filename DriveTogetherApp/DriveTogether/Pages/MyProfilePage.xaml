@@ -68,7 +68,7 @@
             <Image Grid.Row="0" 
                    Grid.Column="0"
                    x:Name="ProfilePicture"
-                   Source="../Assets/cat.jpg"
+                   Source="../Assets/profile.jpg"
                    Tapped="OnImageTapped"
                    VerticalAlignment="Center"/>
             <TextBlock Grid.Row="2"

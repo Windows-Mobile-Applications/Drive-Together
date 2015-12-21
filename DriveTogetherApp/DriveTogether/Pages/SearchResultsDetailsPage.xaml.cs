@@ -22,6 +22,11 @@ namespace DriveTogether.Pages
             this.Frame.Navigate(typeof(MyProfilePage));
         }
 
+        private void OnRateIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RateTripPage));
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var result = (e.Parameter as SearchResultsView);

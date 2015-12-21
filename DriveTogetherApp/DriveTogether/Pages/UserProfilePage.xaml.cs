@@ -15,5 +15,15 @@ namespace DriveTogether.Pages
         {
             this.Frame.Navigate(typeof(HomePage));
         }
+
+        private void OnUserIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MyProfilePage));
+        }
+
+        private void OnRateIconTapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RateTripPage));
+        }
     }
 }

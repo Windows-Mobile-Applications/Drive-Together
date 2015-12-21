@@ -28,7 +28,8 @@
                 </AppBarButton>
                 <AppBarButton Foreground="#FF000000" Label="Rate" x:Uid="Rate">
                     <AppBarButton.Icon>
-                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="M10.0000114440918,3.89350843429565L10.0000114440918,12.3305912017822 13.746561050415,14.9381103515625 12.3155784606934,10.7195539474487 16.014627456665,8.14516162872314 11.442234992981,8.14516162872314 10.0000114440918,3.89350843429565z M9.99999904632568,0L12.3380832672119,6.89422369003296 20,6.89422369003296 13.8015747070313,11.2084274291992 16.1509113311768,18.1351566314697 9.99999904632568,13.8540878295898 3.84908699989319,18.1351566314697 6.19842386245728,11.2084274291992 0,6.89422369003296 7.66191482543945,6.89422369003296 9.99999904632568,0z" />
+                        <PathIcon HorizontalAlignment="Center" VerticalAlignment="Center" Data="M10.0000114440918,3.89350843429565L10.0000114440918,12.3305912017822 13.746561050415,14.9381103515625 12.3155784606934,10.7195539474487 16.014627456665,8.14516162872314 11.442234992981,8.14516162872314 10.0000114440918,3.89350843429565z M9.99999904632568,0L12.3380832672119,6.89422369003296 20,6.89422369003296 13.8015747070313,11.2084274291992 16.1509113311768,18.1351566314697 9.99999904632568,13.8540878295898 3.84908699989319,18.1351566314697 6.19842386245728,11.2084274291992 0,6.89422369003296 7.66191482543945,6.89422369003296 9.99999904632568,0z" 
+                                  Tapped="OnRateIconTapped"/>
                     </AppBarButton.Icon>
                 </AppBarButton>
                 <AppBarButton Foreground="#FF000000" Label="Profile" x:Uid="Profile"
@@ -55,9 +56,7 @@
                         ToCity="{Binding ToCity}"
                         Date="{Binding Date}"
                         Time="{Binding Time}"
-                        Height="116" 
-                        Width="{Binding ElementName=Page,
-                        Path=ActualWidth}"
+                        Width="312"
                 DoubleTapped="OnSearchResultDoubleTap"/>
         </DataTemplate>
     </Page.Resources>
@@ -68,8 +67,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <ListView  Grid.Row="0"
-                   Grid.Column="0"
+        <ListView
                        ItemsSource="{Binding Results}"
                        ItemTemplate="{StaticResource SearchResultsTemplate}"
                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -77,6 +75,8 @@
                 <Style TargetType="ListViewItem">
                     <Setter Property="Padding" Value="0"/>
                     <Setter Property="Margin" Value="3,5,3,1"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
@@ -111,7 +111,7 @@
                 Click="OnAddTripButtonClick"/>
         </Grid>
         
-        <Button Content="LogOut"
-                Click="OnLogOutButtonClick"/>
+        <!--<Button Content="LogOut"
+                Click="OnLogOutButtonClick"/>-->
     </Grid>
 </Page>

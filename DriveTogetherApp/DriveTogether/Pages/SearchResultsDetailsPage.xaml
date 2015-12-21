@@ -94,7 +94,7 @@
                    VerticalAlignment="Center"/>
                 <Image Grid.Row="0"
                        Grid.Column="2"
-                       Source="../Assets/cat.jpg"/>
+                       Source="http://jeanbaptiste.bayle.free.fr/AVATAR/grey_81618-default-avatar-200x200.jpg"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>

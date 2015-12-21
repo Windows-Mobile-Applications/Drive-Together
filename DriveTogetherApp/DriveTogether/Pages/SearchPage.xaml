@@ -46,8 +46,7 @@
                         Date="{Binding Date}"
                         Time="{Binding Time}"
                         Height="116" 
-                        Width="{Binding ElementName=Page,
-                        Path=ActualWidth}"
+                        Width="312"
                 DoubleTapped="OnSearchResultDoubleTap"/>
         </DataTemplate>
     </Page.Resources>

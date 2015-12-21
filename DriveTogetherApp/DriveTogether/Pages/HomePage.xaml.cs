@@ -26,39 +26,39 @@ namespace DriveTogether.Pages
                 {
                     new SearchResultViewModel()
                     {
-                        FullName = "John Doe",
+                        FullName = "Albena Marcheva",
                         Seats = "4",
                         FromCity = "Sofia",
                         ToCity = "Plovdiv",
-                        Date = "12.03.2015",
+                        Date = "21 Dec",
                         Time = "15:10"
                     },
                     new SearchResultViewModel()
                     {
-                        FullName = "Jane Doe",
+                        FullName = "Ivan Marchev",
                         Seats = "3",
                         FromCity = "Varna",
                         ToCity = "Burgas",
-                        Date = "13.04.2015",
+                        Date = "21 Dec",
                         Time = "12:15"
                     },
                     new SearchResultViewModel()
                     {
-                        FullName = "Jane Doe",
-                        Seats = "3",
+                        FullName = "Stamat Petkov",
+                        Seats = "1",
                         FromCity = "Varna",
-                        ToCity = "Burgas",
-                        Date = "13.04.2015",
-                        Time = "12:15"
+                        ToCity = "Sliven",
+                        Date = "23 Dec",
+                        Time = "12:00"
                     },
                     new SearchResultViewModel()
                     {
-                        FullName = "Jane Doe",
+                        FullName = "Marya Stoilova",
                         Seats = "3",
-                        FromCity = "Varna",
+                        FromCity = "Sofiq",
                         ToCity = "Burgas",
-                        Date = "13.04.2015",
-                        Time = "12:15"
+                        Date = "21 Dec",
+                        Time = "17:30"
                     }
                 }
             };

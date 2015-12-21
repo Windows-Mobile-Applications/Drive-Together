@@ -19,7 +19,7 @@
 
     public sealed partial class SignInPage : Page
     {
-        private const string InputErrorMessage = "Input error, all fields are required!";
+        private const string InputErrorMessage = "Input error, all fields are required or invalid Username or Password!";
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();

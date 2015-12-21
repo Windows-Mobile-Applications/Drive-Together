@@ -85,10 +85,5 @@ namespace DriveTogether.Pages
             var dialog = new MessageDialog(message);
             await dialog.ShowAsync();
         }
-
-        private void OnRateIconTapped(object sender, TappedRoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(RateTripPage));
-        }
     }
 }

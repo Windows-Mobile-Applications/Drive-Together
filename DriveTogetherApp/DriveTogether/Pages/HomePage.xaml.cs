@@ -95,6 +95,7 @@ namespace DriveTogether.Pages
         {
             var connection = this.GetDbConnectionAsync();
             await connection.DeleteAllAsync<SaveStateModel>();
+            await connection.DeleteAllAsync<UserPictureModel>();
         }
 
         private void OnAddTripButtonClick(object sender, RoutedEventArgs e)

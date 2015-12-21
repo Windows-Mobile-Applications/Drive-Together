@@ -45,6 +45,10 @@
     </Page.TopAppBar>
 
     <Grid Background="#8DD28A">
-
+        <TextBlock Text="No available trips to rate."
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"
+                   FontSize="25"
+                   Foreground="#1E1E1E"/>
     </Grid>
 </Page>

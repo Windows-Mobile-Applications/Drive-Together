@@ -54,7 +54,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
-                       Text="John Doe"
+                       Text="Anton Hristov"
                            Style="{StaticResource UserInfoTextBlock}"
                        />
             <Image Grid.Row="1" x:Name="pic"></Image>
